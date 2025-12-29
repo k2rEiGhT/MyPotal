@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>マイポータル</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="icon" href="./favicon/favicon.png" type="image/png">
+    <link rel="apple-touch-icon" href="./favicon/apple-touch-icon.png">
+</head>
+<body>
+    <div class="backdrop"></div>
+    
+    <div class="header">
+        <h1>マイポータル</h1>
+        <div class="search-container">
+            <input type="text" class="search-input" placeholder="Googleで検索..." id="searchInput"> 
+            <button class="search-button" id="searchButton">
+                <svg class="search-icon" fill="currentColor" viewBox="0 0 20 20">
+                    <path fill-rule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clip-rule="evenodd"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <div class="battery-container">
+            <div class="battery-visual">            
+                <div id="battery-fill" class="battery-fill" style="width: 0%;"></div>
+                <div id="battery-charging" class="battery-charging">⚡</div>
+            </div>
+            <div id="battery-level" class="battery-level">読み込み中</div>
+        </div>
+
+        <div class="datetime-container">
+            <div class="date-day" id="dateDay"></div>
+            <div class="time" id="time"></div>
+        </div>
+
+    </div>
+
+    <div class="main">
+        <div class="icon-grid" id="iconGrid">
+        </div>
+    </div>
+
+    
+</body>
+<script src="script.js"></script>
+</html>
