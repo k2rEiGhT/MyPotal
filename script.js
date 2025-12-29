@@ -119,3 +119,10 @@ function updateBatteryInfo() {
 
 const iconGrid =  document.getElementById("iconGrid");
 console.log(iconGrid);
+
+document.getElementById("addlinkBtn").addEventListener("click", () => {
+    const name = document.getElementById("linkName").value;
+    const url = document.getElementById("linkUrl").value;
+
+    console.log(name, url);
+});
