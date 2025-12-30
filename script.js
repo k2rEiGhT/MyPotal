@@ -131,12 +131,86 @@ const links = [
     {
         title: "Google",
         url: "https://www.google.com/?hl=ja&zx=1752377659774&no_sw_cr=1",
-        icon: "logo/Google.png"
+        icon: "logo/google.png"
     },
     {
         title: "Gmail",
         url: "https://mail.google.com/mail/u/0/?pli=1#inbox",
         icon: "logo/gmail.png"
+    },
+    {
+        title: "Googleドライブ",
+        url: "https://drive.google.com/drive/my-drive",
+        icon: "logo/googledrive.png"
+    },
+    {
+        title: "Googleカレンダー",
+        url: "https://calendar.google.com/calendar/u/0/r?pli=1",
+        icon: "logo/googlecalender.png"
+    },
+    {
+        title: "公式LINE",
+        url: "https://account.line.biz/login?redirectUri=https%3A%2F%2Faccount.line.biz%2Foauth2%2Fcallback%3Fclient_id%3D10%26code_challenge%3DEqJXm8FxXlKHkWK6K3ZaF-0xtnIhYjiA35827YsLHWE%26code_challenge_method%3DS256%26redirect_uri%3Dhttps%253A%252F%252Fmanager.line.biz%252Fapi%252Foauth2%252FbizId%252Fcallback%26response_type%3Dcode%26state%3DOzS5V352u28sHvo7y7aK88Y4ZOxaesiS",
+        icon: "logo/line.png"
+    },
+    {
+        title: "リベシティ",
+        url: "https://libecity.com/mypage/home",
+        icon: "logo/libecity.png"
+    },
+    {
+        title: "個人家計簿",
+        url: "https://docs.google.com/spreadsheets/d/13ccG975lF9uq5-NR9MZS8Y__yRNjEIN12lWUSUoFuLo/edit?gid=1350957424#gid=1350957424",
+        icon: "logo/spreadsheet.png"
+    },
+    {
+        title: "家族家計簿",
+        url: "https://docs.google.com/spreadsheets/d/1Asx0YcLz4Th-K8H8ecf5vszRDMAwr-njH9Yd45mYNbY/edit?gid=1170395166#gid=1170395166",
+        icon: "logo/spreadsheet.png"
+    },
+    {
+        title: "SBIネット銀行",
+        url: "https://www.netbk.co.jp/contents/",
+        icon: "logo/sbi.png"
+    },
+    {
+        title: "SBi証券",
+        url: "https://site1.sbisec.co.jp/ETGate/?_ControlID=WPLEThmR001Control&_PageID=DefaultPID&_DataStoreID=DSWPLEThmR001Control&_ActionID=DefaultAID&getFlg=on",
+        icon: "logo/sbi.png"
+    },{
+        title: "確定拠出年金",
+        url: "https://www.benefit401k.com/customer/RKDCMember/Common/JP_D_BFKErrorSessionValid.aspx",
+        icon: "logo/ideco.png"
+    },
+    {
+        title: "マネーフォワード",
+        url: "https://id.moneyforward.com/account_selector?client_id=WSGuP6Chp0YwMK9_vs_K5psyVFAhFxvutdxTAYVr570&nonce=34a31061502103764d11f17e082aff3f&redirect_uri=https%3A%2F%2Fpayroll.moneyforward.com%3A443%2Fusers%2Fauth%2Fmfid%2Fcallback&response_type=code&scope=openid+email&state=9bbc3e14b7bfb6bb26e050dae282d496",
+        icon: "logo/moneyfoward.png"
+    },
+    {
+        title: "三井住友カード",
+        url: "https://www.smbc-card.com/mem/index.jsp",
+        icon: "logo/smbc-card.png"
+    },
+    {
+        title: "JCB",
+        url: "https://my.jcb.co.jp/Login",
+        icon: "logo/jcb.png"
+    },
+    {
+        title: "GitHub",
+        url: "https://github.com/",
+        icon: "logo/github.png"
+    },
+    {
+        title: "ChatGPT",
+        url: "https://chatgpt.com/",
+        icon: "logo/chatgpt.png"
+    },
+    {
+        title: "claude",
+        url: "https://claude.ai/",
+        icon: "logo/claude.png"
     }
 
 ];
