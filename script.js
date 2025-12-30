@@ -119,21 +119,7 @@ function updateBatteryInfo() {
 
 
 
-//グリッド表示   
-const iconGrid =  document.getElementById("iconGrid");
-console.log(iconGrid);
 
-document.getElementById("addlinkBtn").addEventListener("click", () => {
-    const name = document.getElementById("linkName").value;
-    const url = document.getElementById("linkUrl").value;
-    const icon = document.getElementById('linkIcon').value;
-
-    if (!name || !url || !icon) return;
-
-    const newlink = {title: name, url, icon };
-    links.push(newlink);
-    renderLinks();
-});
 
 const links = [
     {
@@ -257,8 +243,13 @@ const links = [
     }
 ];
 
-//リンクの追加
-links.forEach(link => {
+//グリッド表示   
+const iconGrid = document.getElementById("iconGrid");
+
+function renderLinks() {
+  iconGrid.innerHTML = ""; 
+
+  links.forEach(link => {
     const a = document.createElement("a");
     a.href = link.url;
     a.target = "_blank";
@@ -268,13 +259,39 @@ links.forEach(link => {
     img.src = link.icon;
 
     const span = document.createElement("span");
-    span.textContent =link.title;
+    span.textContent = link.title;
 
     a.appendChild(img);
     a.appendChild(span);
-
     iconGrid.appendChild(a);
+  });
+}
+
+
+document.getElementById("addlinkBtn").addEventListener("click", () => {
+  const name = document.getElementById("linkName").value;
+  const url = document.getElementById("linkUrl").value;
+  const icon = document.getElementById("linkIcon").value;
+
+  if (!name || !url || !icon) {
+    alert("すべて入力してください");
+    return;
+  }
+
+  links.push({
+    title: name,
+    url: url,
+    icon: icon
+  });
+
+  renderLinks(); // ← ここが超重要
+
+  // 入力欄リセット
+  document.getElementById("linkName").value = "";
+  document.getElementById("linkUrl").value = "";
+  document.getElementById("linkIcon").value = "";
 });
 
 
+renderLinks();
 
