@@ -109,7 +109,7 @@ function updateBatteryInfo() {
             } else {
                 
                 }
-        }
+}
         // ページ読み込み時に実行
         window.addEventListener('load', updateBatteryInfo);
 
@@ -117,14 +117,39 @@ function updateBatteryInfo() {
         setInterval(updateBatteryInfo, 30000);
 
 
+//リンクの追加
+links.forEach(link => {
+    const a = document.createElement("a");
+    a.href = link.url;
+    a.target = "_blank";
+    a.className = "icon-tile";
+
+    const img = document.createElement("img");
+    img.src = link.icon;
+
+    const span = document.createElement("span");
+    span.textContent =link.title;
+
+    a.appendChild(img);
+    a.appendChild(span);
+
+    iconGrid.appendChild(a);
+});
+
+//グリッド表示   
 const iconGrid =  document.getElementById("iconGrid");
 console.log(iconGrid);
 
 document.getElementById("addlinkBtn").addEventListener("click", () => {
     const name = document.getElementById("linkName").value;
     const url = document.getElementById("linkUrl").value;
+    const icon = document.getElementById('linkIcon').value;
 
-    console.log(name, url);
+    if (!name || !url || !icon) return;
+
+    const newlink = {title: name, url, icon };
+    links.push(newlink);
+    renderLinks();
 });
 
 const links = [
@@ -244,21 +269,7 @@ const links = [
     }
 ];
 
-links.forEach(link => {
-    const a = document.createElement("a");
-    a.href = link.url;
-    a.target = "_blank";
-    a.className = "icon-tile";
 
-    const img = document.createElement("img");
-    img.src = link.icon;
 
-    const span = document.createElement("span");
-    span.textContent =link.title;
 
-    a.appendChild(img);
-    a.appendChild(span);
-
-    iconGrid.appendChild(a);
-});
 
