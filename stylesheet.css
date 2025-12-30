@@ -165,7 +165,7 @@ body {
     z-index: 2;
 }
 
-.battery-visual.charging .barrery-charging {
+.battery-visual.charging .battery-charging {
     display: flex;
 }
 

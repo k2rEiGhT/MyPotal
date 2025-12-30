@@ -75,7 +75,7 @@ function updateBatteryDisplay() {
     const level = Math.round(battery.level * 100);
     const batteryFill = document.getElementById('battery-fill');
     const batteryLevel = document.getElementById('battery-level');
-    const batteryVisual = document.querySelector('.battery-sixual');
+    const batteryVisual = document.querySelector('.battery-vixual');
 
     // 表示更新
     batteryLevel.textContent = `${level}%`;
@@ -230,7 +230,7 @@ const links = [
     {
         title: "Amazon",
         url: "https://www.amazon.co.jp/?tag=hydraamazonav-22&ref=nav_signin&adgrpid=56100363354&hvpone=&hvptwo=&hvadid=611275290702&hvpos=&hvnetw=g&hvrand=2254283399157979595&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9166942&hvtargid=kwd-10573980&hydadcr=27922_14587441",
-        icon: "logo/amzon.png"
+        icon: "logo/amazon.png"
     },
     {
         title: "メルカリ",
