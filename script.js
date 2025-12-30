@@ -90,7 +90,7 @@ function updateBatteryDisplay() {
     }
 
     // 充電中判定
-    batteryVisual.slassList.toggle('charging',battery.charging);
+    batteryVisual.classList.toggle('charging',battery.charging);
 }
 
 function updateBatteryInfo() {
