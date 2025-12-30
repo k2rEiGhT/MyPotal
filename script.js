@@ -211,8 +211,37 @@ const links = [
         title: "claude",
         url: "https://claude.ai/",
         icon: "logo/claude.png"
+    },
+    {
+        title: "Canva",
+        url: "https://www.canva.com/",
+        icon: "logo/canva.png"
+    },
+    {
+        title: "perplexity",
+        url: "https://www.perplexity.ai/",
+        icon: "logo/perplexity.png"
+    },
+    {
+        title: "YouTube",
+        url: "https://www.youtube.com/",
+        icon: "logo/youtube.png"
+    },
+    {
+        title: "Amazon",
+        url: "https://www.amazon.co.jp/?tag=hydraamazonav-22&ref=nav_signin&adgrpid=56100363354&hvpone=&hvptwo=&hvadid=611275290702&hvpos=&hvnetw=g&hvrand=2254283399157979595&hvqmt=e&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9166942&hvtargid=kwd-10573980&hydadcr=27922_14587441",
+        icon: "logo/amzon.png"
+    },
+    {
+        title: "メルカリ",
+        url: "https://jp.mercari.com/",
+        icon: "logo/mercari.png"
+    },
+    {
+        title: "関西電力",
+        url: "https://kepco.jp/miruden/servicetop/login?DISP_ID=%2fmiruden%2fmypage",
+        icon: "logo/kanden.png"
     }
-
 ];
 
 links.forEach(link => {
