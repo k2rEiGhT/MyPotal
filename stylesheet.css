@@ -165,13 +165,8 @@ body {
     z-index: 2;
 }
 
-.battery-visual.charging .battery-charging {
-    display: flex;
-}
 
-.battery-visual.charging .battery-fill {
-    opacity: 0.6;
-}
+
 
 .battery-visual::after {
     content: '';
