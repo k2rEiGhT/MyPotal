@@ -164,6 +164,11 @@ const links = [
         icon: "logo/gmail.png"
     },
     {
+        title: "GoogleMap",
+        url: "https://www.google.co.jp/maps/?q=",
+        icon: "logo/googlemap.png"
+    },
+    {
         title: "Googleドライブ",
         url: "https://drive.google.com/drive/my-drive",
         icon: "logo/googledrive.png"
