@@ -169,7 +169,7 @@ body {
     display: flex;
 }
 
-.battery-visuall.charging .battery-fill {
+.battery-visual.charging .battery-fill {
     opacity: 0.6;
 }
 

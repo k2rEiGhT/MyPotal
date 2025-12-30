@@ -75,7 +75,7 @@ function updateBatteryDisplay() {
     const level = Math.round(battery.level * 100);
     const batteryFill = document.getElementById('battery-fill');
     const batteryLevel = document.getElementById('battery-level');
-    const batteryVisual = document.querySelector('.battery-vixual');
+    const batteryVisual = document.querySelector('.battery-visual');
 
     // 表示更新
     batteryLevel.textContent = `${level}%`;
