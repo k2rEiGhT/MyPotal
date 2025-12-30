@@ -126,3 +126,17 @@ document.getElementById("addlinkBtn").addEventListener("click", () => {
 
     console.log(name, url);
 });
+
+const links = [
+    {
+        title: "Google",
+        url: "https://www.google.com/?hl=ja&zx=1752377659774&no_sw_cr=1",
+        icon: "logo/Google.png"
+    },
+    {
+        title: "Gmail",
+        url: "https://mail.google.com/mail/u/0/?pli=1#inbox",
+        icon: "logo/gmail.png"
+    }
+
+];
