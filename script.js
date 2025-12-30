@@ -117,24 +117,7 @@ function updateBatteryInfo() {
         setInterval(updateBatteryInfo, 30000);
 
 
-//リンクの追加
-links.forEach(link => {
-    const a = document.createElement("a");
-    a.href = link.url;
-    a.target = "_blank";
-    a.className = "icon-tile";
 
-    const img = document.createElement("img");
-    img.src = link.icon;
-
-    const span = document.createElement("span");
-    span.textContent =link.title;
-
-    a.appendChild(img);
-    a.appendChild(span);
-
-    iconGrid.appendChild(a);
-});
 
 //グリッド表示   
 const iconGrid =  document.getElementById("iconGrid");
@@ -274,7 +257,24 @@ const links = [
     }
 ];
 
+//リンクの追加
+links.forEach(link => {
+    const a = document.createElement("a");
+    a.href = link.url;
+    a.target = "_blank";
+    a.className = "icon-tile";
 
+    const img = document.createElement("img");
+    img.src = link.icon;
+
+    const span = document.createElement("span");
+    span.textContent =link.title;
+
+    a.appendChild(img);
+    a.appendChild(span);
+
+    iconGrid.appendChild(a);
+});
 
 
 
