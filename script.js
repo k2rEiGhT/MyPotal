@@ -140,3 +140,21 @@ const links = [
     }
 
 ];
+
+links.forEach(link => {
+    const a = document.createElement("a");
+    a.href = links.url;
+    a.target = "_blank";
+
+    const img = document.createElement("img");
+    img.src = link.icon;
+
+    const span = document.createElement("span");
+    span.textContent =link.title;
+
+    a.appendChild(img);
+    a.appendChild(span);
+
+    iconGrid.appendChild(a);
+});
+
