@@ -145,7 +145,7 @@ links.forEach(link => {
     const a = document.createElement("a");
     a.href = link.url;
     a.target = "_blank";
-    a.className = "icon-title";
+    a.className = "icon-tile";
 
     const img = document.createElement("img");
     img.src = link.icon;
