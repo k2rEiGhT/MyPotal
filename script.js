@@ -170,7 +170,7 @@ const links = [
     {
         title: "SBIネット銀行",
         url: "https://www.netbk.co.jp/contents/",
-        icon: "logo/sbi.png"
+        icon: "logo/d-neo-bank.png"
     },
     {
         title: "SBi証券",
