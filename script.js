@@ -75,6 +75,8 @@ function updateBatteryDisplay() {
     const level = Math.round(battery.level * 100);
     const batteryFill = document.getElementById('battery-fill');
     const batteryLevel = document.getElementById('battery-level');
+    const batteryVisual = document.querySelector('.battery-viual');
+
     // 表示更新
     batteryLevel.textContent = `${level}%`;
     batteryFill.style.width = `${level}%`;
@@ -86,6 +88,9 @@ function updateBatteryDisplay() {
     } else if (level <= 50) {
         batteryFill.classList.add('low');
     }
+
+    // 充電中判定
+    batteryVisual.classList.toggle('charging',battery.charging);
 }
 
 function updateBatteryInfo() {
