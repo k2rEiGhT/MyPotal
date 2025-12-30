@@ -165,9 +165,6 @@ body {
     z-index: 2;
 }
 
-.battery-visual.charging .battery-charging {
-    display: flex;
-}
 
 .battery-visuall.charging .battery-fill {
     opacity: 0.6;
