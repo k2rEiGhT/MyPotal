@@ -76,7 +76,8 @@ const defaultLinks = [
     { title:"タスク管理", url:"https://docs.google.com/spreadsheets/d/148h01Yy04lEpBxf5m5G_r8EBkMKnpclip1jsp9zeIu4/edit?gid=0#gid=0","icon":"logo/spreadsheet.png"}
 ];
 
-let links = defaultLinks;
+// 画面での変更を保存したい場合はこちらに戻す
+let links = JSON.parse(localStorage.getItem('myPortalLinks')) || defaultLinks;
 let draggedItemIndex = null;
 
 // 画面描画とドラッグ＆ドロップの設定
