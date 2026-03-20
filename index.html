@@ -46,7 +46,20 @@
         <input type="text" id="linkIcon" placeholder="logo画像パス">
         <button id="addlinkBtn">追加</button>
     </div>
-
+    
+    <button id="openModalBtn" class="floating-add-btn">＋</button>
+    <div id="linkModal" class="modal">
+        <div class="modal-content">
+            <h2 id="modalTitle">新しいリンクを追加</h2>
+            <input type="hidden" id="editIndex"> <input type="text" id="linkName" placeholder="表示名 (例: Google)">
+            <input type="url" id="linkUrl" placeholder="URL (https://...)">
+            <input type="text" id="linkIcon" placeholder="ロゴ画像パス (logo/google.png)">
+            <div class="modal-buttons">
+                <button id="cancelBtn">キャンセル</button>
+                <button id="saveLinkBtn">保存</button>
+            </div>
+        </div>
+    </div>
     
 </body>
 <script src="script.js"></script>
