@@ -44,10 +44,6 @@ window.addEventListener('load', updateBatteryInfo);
 
 // --- 4. ポータルリンク管理 ---
 const defaultLinks = [
-    { title: "Google", url: "https://www.google.com/", icon: "logo/google.png" },
-    { title: "Gmail", url: "https://mail.google.com/", icon: "logo/gmail.png" },
-    { title: "GitHub", url: "https://github.com/", icon: "logo/github.png" },
-    { title: "Amazon", url: "https://www.amazon.co.jp/", icon: "logo/amazon.png" },
     { title:"Google", url:"https://www.google.com/","icon":"logo/google.png"},
     { title:"Gmail", url:"https://mail.google.com/","icon":"logo/gmail.png"},
     { title:"GoogleMap", url:"https://www.google.co.jp/maps/","icon":"logo/googlemap.png"},
@@ -63,7 +59,6 @@ const defaultLinks = [
     { title:"マネーフォワード", url:"https://payroll.moneyforward.com/","icon":"logo/moneyfoward.png"},
     { title:"三井住友カード", url:"https://www.smbc-card.com/","icon":"logo/smbc-card.png"},
     { title:"JCB", url:"https://my.jcb.co.jp/","icon":"logo/jcb.png"},
-    { title:"GitHub", url:"https://github.com/","icon":"logo/default.png"},
     { title:"chatGPT", url:"https://chatgpt.com/","icon":"logo/default.png"},
     { title:"gemini", url:"https://gemini.google.com/app","icon":"logo/default.png"},
     { title:"Canva", url:"https://www.canva.com/ja_jp/","icon":"logo/default.png"},
@@ -75,6 +70,9 @@ const defaultLinks = [
     { title:"関西電力", url:"https://kepco.jp/miruden/","icon":"logo/default.png"},
     { title:"タスク管理", url:"https://docs.google.com/spreadsheets/d/148h01Yy04lEpBxf5m5G_r8EBkMKnpclip1jsp9zeIu4/edit?gid=0#gid=0","icon":"logo/spreadsheet.png"}
 ];
+
+// iPhoneと同期させるため、常にこのリストを読み込む
+let links = defaultLinks;
 
 // 画面での変更を保存したい場合はこちらに戻す
 let links = JSON.parse(localStorage.getItem('myPortalLinks')) || defaultLinks;
