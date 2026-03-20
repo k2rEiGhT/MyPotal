@@ -42,9 +42,8 @@ async function updateBatteryInfo() {
 }
 window.addEventListener('load', updateBatteryInfo);
 
-// --- 4. ポータルリンク管理 (LocalStorage & 多機能版) ---
+// --- 4. ポータルリンク管理 ---
 
-// あなたの持っている初期データリスト
 const defaultLinks = [
     { title: "Google", url: "https://www.google.com/", icon: "logo/google.png" },
     { title: "Gmail", url: "https://mail.google.com/", icon: "logo/gmail.png" },
@@ -53,26 +52,12 @@ const defaultLinks = [
     { title: "Googleカレンダー", url: "https://calendar.google.com/", icon: "logo/googlecalender.png" },
     { title: "公式LINE", url: "https://manager.line.biz/", icon: "logo/line.png" },
     { title: "リベシティ", url: "https://libecity.com/", icon: "logo/libecity.png" },
-    { title: "個人家計簿", url: "https://docs.google.com/spreadsheets/d/1OmwT1PHnIzGPtQZIQaIDKkEdEl3RFndBMcTlAz9Xl9Q/", icon: "logo/spreadsheet.png" },
-    { title: "家族家計簿", url: "https://docs.google.com/spreadsheets/d/1pf-fy-SsGUdnfb1e5NFxEDfTxnMb7kLMYYttAjfQrn4/", icon: "logo/spreadsheet.png" },
-    { title: "SBIネット銀行", url: "https://www.netbk.co.jp/", icon: "logo/d-neo-bank.png" },
-    { title: "SBi証券", url: "https://site1.sbisec.co.jp/", icon: "logo/sbi.png" },
-    { title: "確定拠出年金", url: "https://www.benefit401k.com/", icon: "logo/ideco.png" },
-    { title: "マネーフォワード", url: "https://payroll.moneyforward.com/", icon: "logo/moneyfoward.png" },
-    { title: "三井住友カード", url: "https://www.smbc-card.com/", icon: "logo/smbc-card.png" },
-    { title: "JCB", url: "https://my.jcb.co.jp/", icon: "logo/jcb.png" },
     { title: "GitHub", url: "https://github.com/", icon: "logo/github.png" },
     { title: "ChatGPT", url: "https://chatgpt.com/", icon: "logo/chatgpt.png" },
-    { title: "claude", url: "https://claude.ai/", icon: "logo/claude.png" },
-    { title: "Canva", url: "https://www.canva.com/", icon: "logo/canva.png" },
-    { title: "perplexity", url: "https://www.perplexity.ai/", icon: "logo/perplexity.png" },
     { title: "YouTube", url: "https://www.youtube.com/", icon: "logo/youtube.png" },
-    { title: "Amazon", url: "https://www.amazon.co.jp/", icon: "logo/amazon.png" },
-    { title: "メルカリ", url: "https://jp.mercari.com/", icon: "logo/mercari.png" },
-    { title: "関西電力", url: "https://kepco.jp/miruden/", icon: "logo/kanden.png" }
+    { title: "Amazon", url: "https://www.amazon.co.jp/", icon: "logo/amazon.png" }
 ];
 
-// 保存されたデータがあれば読み込み、なければ初期リストを使う
 let links = JSON.parse(localStorage.getItem('myPortalLinks')) || defaultLinks;
 
 function renderLinks() {
@@ -88,8 +73,8 @@ function renderLinks() {
         a.className = "icon-tile";
         a.innerHTML = `
             <div class="tile-actions">
-                <button class="btn-edit" onclick="event.preventDefault(); openEditModal(${index})">編集</button>
-                <button class="btn-delete" onclick="event.preventDefault(); deleteLink(${index})">削除</button>
+                <button class="btn-edit" onclick="event.preventDefault(); window.openEditModal(${index})">編集</button>
+                <button class="btn-delete" onclick="event.preventDefault(); window.deleteLink(${index})">削除</button>
             </div>
             <img src="${link.icon}" onerror="this.src='https://www.google.com/s2/favicons?domain=${new URL(link.url).hostname}&sz=64'">
             <span>${link.title}</span>
@@ -98,20 +83,13 @@ function renderLinks() {
     });
 }
 
-// 削除機能
-window.deleteLink = (index) => {
-    if (confirm(`「${links[index].title}」を削除してもよろしいですか？`)) {
-        links.splice(index, 1);
-        renderLinks();
-    }
-};
-
-// モーダル関連の操作
-const modal = document.getElementById("linkModal");
+// 編集モーダルを開く
 window.openEditModal = (index) => {
     const isEdit = index !== -1;
+    const modal = document.getElementById("linkModal");
     document.getElementById("modalTitle").innerText = isEdit ? "リンクを編集" : "新しいリンクを追加";
     document.getElementById("editIndex").value = index;
+
     if (isEdit) {
         document.getElementById("linkName").value = links[index].title;
         document.getElementById("linkUrl").value = links[index].url;
@@ -124,6 +102,15 @@ window.openEditModal = (index) => {
     modal.style.display = "block";
 };
 
+// 削除機能
+window.deleteLink = (index) => {
+    if (confirm(`「${links[index].title}」を削除しますか？`)) {
+        links.splice(index, 1);
+        renderLinks();
+    }
+};
+
+// 保存ボタン
 document.getElementById("saveLinkBtn").onclick = () => {
     const name = document.getElementById("linkName").value.trim();
     const url = document.getElementById("linkUrl").value.trim();
@@ -132,16 +119,22 @@ document.getElementById("saveLinkBtn").onclick = () => {
 
     if (!name || !url) return alert("名前とURLを入力してください");
 
-    const data = { title: name, url: url, icon: icon };
+    const data = { title: name, url: url, icon: icon || 'logo/default.png' };
+    
     if (idx === -1) links.push(data);
     else links[idx] = data;
 
     renderLinks();
-    modal.style.display = "none";
+    document.getElementById("linkModal").style.display = "none";
 };
 
-document.getElementById("cancelBtn").onclick = () => modal.style.display = "none";
-document.getElementById("openModalBtn").onclick = () => openEditModal(-1);
+// キャンセルボタン
+document.getElementById("cancelBtn").onclick = () => {
+    document.getElementById("linkModal").style.display = "none";
+};
 
-// 初回実行
+// ＋ボタンでモーダルを開く
+document.getElementById("openModalBtn").onclick = () => window.openEditModal(-1);
+
+// 初回表示
 renderLinks();

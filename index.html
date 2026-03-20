@@ -33,22 +33,28 @@
             <div class="date-day" id="dateDay"></div>
             <div class="time" id="time"></div>
         </div>
-
     </div>
 
     <div class="main">
-        <div class="icon-grid" id="iconGrid">
-        </div>
+        <div class="icon-grid" id="iconGrid"></div>
     </div>
 
-    
     <button id="openModalBtn" class="floating-add-btn">＋</button>
+
     <div id="linkModal" class="modal">
         <div class="modal-content">
             <h2 id="modalTitle">新しいリンクを追加</h2>
-            <input type="hidden" id="editIndex"> <input type="text" id="linkName" placeholder="表示名 (例: Google)">
-            <input type="url" id="linkUrl" placeholder="URL (https://...)">
-            <input type="text" id="linkIcon" placeholder="ロゴ画像パス (logo/google.png)">
+            <input type="hidden" id="editIndex">
+            
+            <label>表示名</label>
+            <input type="text" id="linkName" placeholder="例: Google">
+            
+            <label>URL</label>
+            <input type="url" id="linkUrl" placeholder="https://...">
+            
+            <label>ロゴ画像 (logo/ファイル名 または URL)</label>
+            <input type="text" id="linkIcon" placeholder="logo/google.png">
+            
             <div class="modal-buttons">
                 <button id="cancelBtn">キャンセル</button>
                 <button id="saveLinkBtn">保存</button>
@@ -56,6 +62,6 @@
         </div>
     </div>
     
+    <script src="script.js"></script>
 </body>
-<script src="script.js"></script>
 </html>
