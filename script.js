@@ -72,10 +72,11 @@ const defaultLinks = [
 ];
 
 // iPhoneと同期させるため、常にこのリストを読み込む
-let links = defaultLinks;
+//let links = defaultLinks;
 
 // 画面での変更を保存したい場合はこちらに戻す
-//let links = JSON.parse(localStorage.getItem('myPortalLinks')) || defaultLinks;
+// iPhone同期用ではなく、Macの保存データを優先する設定にします
+let links = JSON.parse(localStorage.getItem('myPortalLinks')) || defaultLinks;
 let draggedItemIndex = null;
 
 // 画面描画とドラッグ＆ドロップの設定
