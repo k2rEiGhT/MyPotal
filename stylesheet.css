@@ -375,3 +375,19 @@ body {
 }
 
 /* CSS末尾の余計な } を削除してください */
+
+/* ドラッグ中のタイルの見た目 */
+.icon-tile.dragging {
+    opacity: 0.5;
+    transform: scale(0.95);
+    border: 2px dashed rgba(255, 255, 255, 0.5);
+}
+
+/* ドラッグ可能なことを示すカーソル */
+.icon-tile {
+    cursor: grab;
+}
+
+.icon-tile:active {
+    cursor: grabbing;
+}

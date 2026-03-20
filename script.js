@@ -138,3 +138,61 @@ document.getElementById("openModalBtn").onclick = () => window.openEditModal(-1)
 
 // 初回表示
 renderLinks();
+
+// --- 5. ドラッグ＆ドロップ機能 ---
+
+let draggedItemIndex = null;
+
+function renderLinks() {
+    const iconGrid = document.getElementById("iconGrid");
+    if (!iconGrid) return;
+    iconGrid.innerHTML = "";
+    localStorage.setItem('myPortalLinks', JSON.stringify(links));
+
+    links.forEach((link, index) => {
+        const a = document.createElement("a");
+        a.href = link.url;
+        a.target = "_blank";
+        a.className = "icon-tile";
+        a.draggable = true; // ドラッグ可能にする
+
+        a.innerHTML = `
+            <div class="tile-actions">
+                <button class="btn-edit" onclick="event.preventDefault(); window.openEditModal(${index})">編集</button>
+                <button class="btn-delete" onclick="event.preventDefault(); window.deleteLink(${index})">削除</button>
+            </div>
+            <img src="${link.icon}" onerror="this.src='https://www.google.com/s2/favicons?domain=${new URL(link.url).hostname}&sz=64'">
+            <span>${link.title}</span>
+        `;
+
+        // ドラッグ開始
+        a.addEventListener('dragstart', () => {
+            draggedItemIndex = index;
+            a.classList.add('dragging');
+        });
+
+        // ドラッグ終了
+        a.addEventListener('dragend', () => {
+            a.classList.remove('dragging');
+            draggedItemIndex = null;
+        });
+
+        // 他のアイテムの上に来た時
+        a.addEventListener('dragover', (e) => {
+            e.preventDefault(); // ドロップを許可するために必要
+        });
+
+        // ドロップした時
+        a.addEventListener('drop', (e) => {
+            e.preventDefault();
+            if (draggedItemIndex !== null && draggedItemIndex !== index) {
+                // 配列の要素を入れ替える
+                const draggedItem = links.splice(draggedItemIndex, 1)[0];
+                links.splice(index, 0, draggedItem);
+                renderLinks(); // 再描画して保存
+            }
+        });
+
+        iconGrid.appendChild(a);
+    });
+}
