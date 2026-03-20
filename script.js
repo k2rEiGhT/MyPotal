@@ -51,10 +51,9 @@ const defaultLinks = [
 ];
 
 let links = JSON.parse(localStorage.getItem('myPortalLinks')) || defaultLinks;
-
-// ★1つに統合した renderLinks 関数
 let draggedItemIndex = null;
 
+// 画面描画とドラッグ＆ドロップの設定
 function renderLinks() {
     const iconGrid = document.getElementById("iconGrid");
     if (!iconGrid) return;
@@ -77,7 +76,7 @@ function renderLinks() {
             <span>${link.title}</span>
         `;
 
-        // ドラッグ＆ドロップ用イベント
+        // ドラッグイベント
         a.addEventListener('dragstart', () => { draggedItemIndex = index; a.classList.add('dragging'); });
         a.addEventListener('dragend', () => { a.classList.remove('dragging'); draggedItemIndex = null; });
         a.addEventListener('dragover', (e) => { e.preventDefault(); });
@@ -89,12 +88,11 @@ function renderLinks() {
                 renderLinks(); 
             }
         });
-
         iconGrid.appendChild(a);
     });
 }
 
-// 編集モーダルを開く
+// 編集・追加モーダルを開く
 window.openEditModal = (index) => {
     const isEdit = index !== -1;
     const modal = document.getElementById("linkModal");
@@ -106,6 +104,7 @@ window.openEditModal = (index) => {
         document.getElementById("linkUrl").value = links[index].url;
         document.getElementById("linkIcon").value = links[index].icon;
     } else {
+        // 新規追加時は入力を空にする
         document.getElementById("linkName").value = "";
         document.getElementById("linkUrl").value = "";
         document.getElementById("linkIcon").value = "";
@@ -113,7 +112,7 @@ window.openEditModal = (index) => {
     modal.style.display = "block";
 };
 
-// 削除機能
+// 削除
 window.deleteLink = (index) => {
     if (confirm(`「${links[index].title}」を削除しますか？`)) {
         links.splice(index, 1);
@@ -121,7 +120,7 @@ window.deleteLink = (index) => {
     }
 };
 
-// 保存ボタン
+// 保存ボタン（ここが重要！）
 document.getElementById("saveLinkBtn").onclick = () => {
     const name = document.getElementById("linkName").value.trim();
     const url = document.getElementById("linkUrl").value.trim();
@@ -132,20 +131,22 @@ document.getElementById("saveLinkBtn").onclick = () => {
 
     const data = { title: name, url: url, icon: icon || 'logo/default.png' };
     
-    if (idx === -1) links.push(data);
-    else links[idx] = data;
+    // 新規追加 (indexが-1) か 編集 かで処理を分岐
+    if (idx === -1) {
+        links.push(data);
+    } else {
+        links[idx] = data;
+    }
 
-    renderLinks();
-    document.getElementById("linkModal").style.display = "none";
+    renderLinks(); // 画面更新
+    document.getElementById("linkModal").style.display = "none"; // 画面を閉じる
 };
 
-// キャンセルボタン
+// キャンセル・追加ボタン
 document.getElementById("cancelBtn").onclick = () => {
     document.getElementById("linkModal").style.display = "none";
 };
-
-// ＋ボタンでモーダルを開く
 document.getElementById("openModalBtn").onclick = () => window.openEditModal(-1);
 
-// 初回表示
+// 初回実行
 renderLinks();
