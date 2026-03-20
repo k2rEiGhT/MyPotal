@@ -53,6 +53,7 @@ const defaultLinks = [
     { title:"リベシティ", url:"https://libecity.com/","icon":"logo/default.png"},
     { title:"個人家計簿", url:"https://docs.google.com/spreadsheets/d/1OmwT1PHnIzGPtQZIQaIDKkEdEl3RFndBMcTlAz9Xl9Q/","icon":"logo/spreadsheet.png"},
     { title:"家族家計簿", url:"https://docs.google.com/spreadsheets/d/1pf-fy-SsGUdnfb1e5NFxEDfTxnMb7kLMYYttAjfQrn4/","icon":"logo/spreadsheet.png"},
+    { title:"タスク管理", url:"https://docs.google.com/spreadsheets/d/148h01Yy04lEpBxf5m5G_r8EBkMKnpclip1jsp9zeIu4/","icon":"logo/spreadsheet.png"},
     { title:"SBIネット銀行", url:"https://www.netbk.co.jp/","icon":"logo/d-neo-bank.png"},
     { title:"SBi証券", url:"https://site1.sbisec.co.jp/","icon":"logo/sbi.png"},
     { title:"確定拠出年金", url:"https://www.benefit401k.com/","icon":"logo/ideco.png"},
@@ -67,15 +68,13 @@ const defaultLinks = [
     { title:"YouTube", url:"https://www.youtube.com/","icon":"logo/default.png"},
     { title:"Amazon", url:"https://www.amazon.co.jp/","icon":"logo/default.png"},
     { title:"メルカリ", url:"https://jp.mercari.com/","icon":"logo/default.png"},
-    { title:"関西電力", url:"https://kepco.jp/miruden/","icon":"logo/default.png"},
-    { title:"タスク管理", url:"https://docs.google.com/spreadsheets/d/148h01Yy04lEpBxf5m5G_r8EBkMKnpclip1jsp9zeIu4/edit?gid=0#gid=0","icon":"logo/spreadsheet.png"}
+    { title:"関西電力", url:"https://kepco.jp/miruden/","icon":"logo/default.png"}
 ];
 
 // iPhoneと同期させるため、常にこのリストを読み込む
 //let links = defaultLinks;
 
 // 画面での変更を保存したい場合はこちらに戻す
-// iPhone同期用ではなく、Macの保存データを優先する設定にします
 let links = JSON.parse(localStorage.getItem('myPortalLinks')) || defaultLinks;
 let draggedItemIndex = null;
 
