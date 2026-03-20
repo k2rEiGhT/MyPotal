@@ -73,11 +73,10 @@ const defaultLinks = [
     { title:"Amazon", url:"https://www.amazon.co.jp/","icon":"logo/default.png"},
     { title:"メルカリ", url:"https://jp.mercari.com/","icon":"logo/default.png"},
     { title:"関西電力", url:"https://kepco.jp/miruden/","icon":"logo/default.png"},
-    { title:"タスク管理", url:"https://docs.google.com/spreadsheets/d/148h01Yy04lEpBxf5m5G_r8EBkMKnpclip1jsp9zeIu4/edit?gid=0#gid=0","icon":"logo/default.png"}
+    { title:"タスク管理", url:"https://docs.google.com/spreadsheets/d/148h01Yy04lEpBxf5m5G_r8EBkMKnpclip1jsp9zeIu4/edit?gid=0#gid=0","icon":"logo/spreadsheet.png"}
 ];
 
-
-let links = JSON.parse(localStorage.getItem('myPortalLinks')) || defaultLinks;
+let links = defaultLinks;
 let draggedItemIndex = null;
 
 // 画面描画とドラッグ＆ドロップの設定
