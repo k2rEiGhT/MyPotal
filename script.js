@@ -75,7 +75,7 @@ const defaultLinks = [
 let links = defaultLinks;
 
 // 画面での変更を保存したい場合はこちらに戻す
-let links = JSON.parse(localStorage.getItem('myPortalLinks')) || defaultLinks;
+//let links = JSON.parse(localStorage.getItem('myPortalLinks')) || defaultLinks;
 let draggedItemIndex = null;
 
 // 画面描画とドラッグ＆ドロップの設定
